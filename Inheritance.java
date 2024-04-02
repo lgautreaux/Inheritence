@@ -1,34 +1,33 @@
+import java.util.ArrayList;
+
 /**
  * Inheritance
  */
 public class Inheritance {
+
     public static void main(String[] args) {
-        int[] arr = new int[3];
+        BankAccount account = new BankAccount(3.0);
+        account.withdraw(10);
+        System.out.println(account.getBalance());
+        SavingsAccount savingsAcct = new SavingsAccount(2.1);
+        savingsAcct.deposit(500);
+        savingsAcct.withdraw(10);
+        System.out.println(savingsAcct.getBalance());
 
-        try {
-            System.out.println("Before exception");
-            int value = arr[-1]; // This will throw ArrayIndexOutOfBoundsException
-        } catch (ArrayIndexOutOfBoundsException exception) {
-            System.out.println("Exception: " + exception);
+
+        ArrayList<Student> students = new ArrayList<Student>();
+        students.add(new Student("Paul"));
+        students.add(new Student("Peter"));
+        students.add(new Student("Parker"));
+
+        students.sort(new StudentComparator());
+
+        for (Student student : students) {
+            System.out.println(student.GetName());
         }
-        System.out.println("After exception");
-    
 
-    Student student = new Student();
-    student.name = "Logan";
-    student.gpa = 4.0f;
-
-    Instructor instructor= new Instructor("Benny");
-    instructor.name = "James";
-    instructor.Salary = 50000;
-
-    User user = new User("Jimmy");
-    user.name = "Demetrick";
-
-System.out.println(student instanceof Student);
-System.out.println(student instanceof User);
 
     }
-
+    
 
 }
